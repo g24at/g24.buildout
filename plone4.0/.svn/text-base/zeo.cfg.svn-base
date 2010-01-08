@@ -1,0 +1,13 @@
+[buildout]
+extends = buildout.cfg
+parts += zeo
+
+[zeo]
+recipe = plone.recipe.zeoserver
+blob-storage = var/blobstorage
+zeo-address = 8100
+
+[instance]
+zeo-address = ${zeo:zeo-address}
+zeo-client = on
+shared-blob = on

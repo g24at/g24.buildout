@@ -1,0 +1,21 @@
+K 10
+svn:ignore
+V 113
+develop-eggs
+eggs
+fake-eggs
+bin
+parts
+downloads
+var
+build
+dist
+local.cfg
+*.egg-info
+.*
+*.pyc
+.Python
+include
+lib
+
+END
