@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset>
+
+  <server-settings>
+    <server>0.0.0.0:5000</server>
+    <execute-pyref>false</execute-pyref>
+    <dev-allow>localhost</dev-allow>
+    <dev-user username="guest" password="guest" />
+  </server-settings>
+
+  <proxy path="/static" class="static">
+    <dest href="{here}/static/" />
+  </proxy>
+
+  <proxy path="/" class="plone">
+    <dest href="http://localhost:8090/VirtualHostBase/http/localhost:5000/wgo/VirtualHostRoot/" />
+  </proxy>
+
+
+  <!-- ====================================================== -->
+  <!-- Matches                                                -->
+  <!-- ====================================================== -->
+
+  <match path="/community" class="plone, community" />
+  <match path="/support" class="plone, support" />
+  <match path="regex:^/portal_javascripts/.*" abort="1" />  <!-- TinyMCE -->
+
+
+  <!-- ====================================================== -->
+  <!-- Rules                                                  -->
+  <!-- ====================================================== -->
+
+  <rule class="community">
+    <replace href="/static/content/markup-snippets.html"
+             content="#footer_art.community"
+             theme="#footer_art" />
+  </rule>
+
+  <rule class="support">
+    <replace href="/static/content/markup-snippets.html"
+             content="#footer_art.support"
+             theme="#footer_art" />
+  </rule>
+
+  <rule class="plone" suppress-standard="1">
+    <theme href="/static/content/index.html" />
+    
+    <!-- FIRST prepare for 1 or 2 column layout and remove one of the
+         containsers -->
+    <drop if-content="#portal-column-two" theme="tag:div.one_column" />
+    <drop if-content="not:#portal-column-two" theme="tag:div.two_columns" />
+    
+    <replace content='/html/head/title' theme='/html/head/title' />
+    <append content='/html/head/base' theme='children:/html/head' />
+    
+    <!-- Add in the Plone-created CSS and JS in addition to the static ones -->
+    <append content='/html/head/script' theme='/html/head' />
+
+    <prepend content="link[href *= 'member']" theme="/html/head/link" />
+    <prepend content="link[href *= 'authoring']" theme="/html/head/link" />
+    <prepend content="link[href *= 'portlets']" theme="/html/head/link" />
+    <prepend content="link[href *= 'invisibles']" theme="/html/head/link" />
+    <prepend content="link[href *= 'collage']" theme="/html/head/link" />
+    <prepend content="link[href *= 'kupu']" theme="/html/head/link" />
+    <prepend content="link[href *= 'forms']" theme="/html/head/link" />
+    <prepend content="link[href *= 'print']" theme="/html/head/link" />
+
+    <!-- ====================================================== -->
+    <!-- Header                                                 -->
+    <!-- ====================================================== -->
+
+    <!-- Set correct Link for the logo -->
+    <replace content='attributes(href,accesskey):#portal-logo' theme='attributes:#logo h1 a' /> -->
+
+    <!-- Search box -->
+    <drop content="#portal-searchbox label.hiddenStructure" />
+    <drop content="#portal-searchbox input.searchButton" />
+    <drop content="#portal-searchbox div.searchSection" />
+    <drop content="#LSResult" />
+    <replace content='children:#portal-searchbox' theme='children:#top_bar div.right' />
+
+
+    <!-- ====================================================== -->
+    <!-- Horizontal Navigation                                  -->
+    <!-- ====================================================== -->
+
+    <!-- remove the "Home" tab (not a good idea imho -->
+    <drop content="#portaltab-index_html" />
+    <!-- Copy the other tabs -->
+    <replace content='children:#portal-globalnav' theme='children:#top_bar div ul' />
+
+
+    <!-- ====================================================== -->
+    <!-- Subnavigation                                          -->
+    <!-- ====================================================== -->
+
+    <drop content="tag:ul.navTree li div a img" />
+    <drop content="tag:ul.navTree li div a span" />
+    <drop content="tag:ul.navTree li div" />
+    <drop content="attributes(class):ul.navTree li" />
+
+    <drop if-content="not:ul.navTree"
+          theme="#sidebar ul.navigation_list" />
+    <replace if-content="ul.navTree"
+             content="children:ul.navTreeLevel0"
+             theme="children:#sidebar ul.navigation_list" />
+
+    
+    <!-- ====================================================== -->
+    <!-- Portlets                                               -->
+    <!-- ====================================================== -->
+    
+    <!-- remove rest of navtree -->
+    <drop content="dl.portletNavigationTree" />
+    <drop content="tag:#portal-column-two div.visualPadding" />
+    <drop content="tag:div[id *= 'portletwrapper']" />
+    <append content="children:#portal-column-two"
+            theme="children:#sidebar" />
+    
+    
+    <!-- ====================================================== -->
+    <!-- Edit elements                                          -->
+    <!-- ====================================================== -->
+    
+    <!-- Copy the edit bar -->
+    <prepend content='#content-views' theme='#title' />
+    <prepend content='div.contentActions' theme='#title' />
+    
+    <!-- ...but get rid of the content type icons. -->
+    <drop content='#plone-contentmenu-factories dd ul li a img' />
+    
+    <drop content='#link-presentation' />
+    <drop content='div.documentActions' />
+    <drop content='div.documentByLine' />
+    <drop content='span.documentByLine' />
+    <drop content='#review-history' />
+    <drop content="attributes(class):a.external-link" />
+    <drop content="attributes(class):a.plain-link" />
+
+    <!-- Copy over the contents of the page body -->
+    <!-- <replace content='children:#content' theme='children:#leftbar' /> -->
+
+    <!-- remove the history dropdown -->
+    <drop content='dl#history' />
+
+
+    <!-- ====================================================== -->
+    <!-- Main Content                                           -->
+    <!-- ====================================================== -->
+
+    <!-- put the title of the page as the heading -->
+    <drop content="tag:h1.documentFirstHeading span" />
+    <replace content="#content > h1.documentFirstHeading" theme="children:#title h1" />
+    <replace content="#content > div > h1.documentFirstHeading" theme="children:#title h1" />
+    <drop if-content="#collage" theme="#title" />
+
+    <!-- remove icons in folder listings, thumbnail view-->
+    <drop content=".template-folder_listing span.summary > img:first-child" />
+    <drop content=".template-atct_album_view span.summary > img:first-child" />
+
+    <!-- remove dummy text -->
+    <drop theme="children:#content" />
+
+    <drop content="#collage .contenttype-news-item .tileFooter" />
+
+    <replace content="#region-content" theme="children:#content" />
+
+
+    <!-- ====================================================== -->
+    <!-- Footer                                                 -->
+    <!-- ====================================================== -->
+
+    <replace content="children:#wgo-shortcuts" theme="children:#footer-left" />
+    <replace content="#wgo-languageselector" theme="children:#footer-right" />
+
+    <!-- Get rid of the user icon and copy the personaltools -->
+    <drop content='#user-name img' />
+    <append content="children:#portal-personaltools li" theme="children:#footnotes small" />
+
+    <!-- drop the more link at the bottom -->
+    <drop theme='/html/body/div/div/div[3]/div/a' />
+
+    <!-- for news listing page -->
+    <drop content='attributes(class):h2.tileHeadline a' />
+    <drop content='attributes(class):h2.tileHeadline' />
+    <replace content='children:div.tileItem' theme='//*[@id="leftbar"]/p[2]' />
+
+
+    <!-- ====================================================== -->
+    <!-- General cleanup                                        -->
+    <!-- ====================================================== -->
+
+    <!-- Append the id/class attributes from the body tag, this is important
+         for Kupu and per-section styling -->
+    <append content="attributes(id,class):/html/body" theme="attributes:/html/body" />
+
+  </rule>
+</ruleset>
