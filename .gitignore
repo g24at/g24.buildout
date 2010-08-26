@@ -17,6 +17,6 @@ include
 lib
 mailqueue
 src
-plone4.0
+plone
 !.svn
 !.gitignore
