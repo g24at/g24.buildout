@@ -1,6 +1,3 @@
-K 10
-svn:ignore
-V 113
 develop-eggs
 eggs
 fake-eggs
@@ -14,8 +11,12 @@ local.cfg
 *.egg-info
 .*
 *.pyc
+*.wpr
 .Python
 include
 lib
-
-END
+mailqueue
+src
+plone4.0
+!.svn
+!.gitignore

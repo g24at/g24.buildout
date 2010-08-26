@@ -1,5 +1,3 @@
-
-
-dev packages
-============
-plone.app.z3cform 0.4.9 needed, that collective.dancing can be used with wysiwyg editors.
+g24.at buildout
+===============
+base package to install the g24.at environment

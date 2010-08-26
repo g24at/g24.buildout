@@ -1,0 +1,12 @@
+STEPS FOR INITIAL PROJECT CREATION
+==================================
+
+
+LOCAL
+-----
+
+git clone git@github.com:thet/g24.buildout.git g24.buildout
+cd g24.buildout
+svn co https://svn.plone.org/svn/plone/buildouts/plone-coredev/branches/4.0/ plone4.0
+~/env/bin/python2.6 bootstrap.py --distribute
+./bin/buildout -c develop.cfg
