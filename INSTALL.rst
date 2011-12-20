@@ -5,6 +5,8 @@ Install dependencies
 --------------------
 
 erlang
+erlang-dev
+libexpat1-dev
 libpcre3-dev
 libxml2-dev
 libxslt1-dev
