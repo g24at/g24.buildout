@@ -47,7 +47,9 @@ $ ./bin/frontend start
 Start Zope instance
 $ ./bin/instance fg
 
-Create Plone Site: http://localhost:8080/manage
+Create Plone Site: http://localhost:8080/manage with Profiles applied:
+g24.base, jarn.xmpp.core
+
 Edit registry settings in controlpanel. jarn.xmpp.* 
 Restart Plone
 Admin Login
