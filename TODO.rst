@@ -2,6 +2,10 @@
 TODO
 ----
 
+* plone.app.jquery/master depends on P.ResourceRegistry with "bundle" feature.
+  branch 1.4 does not. document, depend on p.resreg or fix it in p.a.jq.
+
+
 * let users log in via jabber, remove the need of registering via plone first
 
 * sharing box. embedly service über eigenes feld.
