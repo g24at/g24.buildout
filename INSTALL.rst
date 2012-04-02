@@ -34,12 +34,12 @@ to check in RW at the same time.
 Configure
 ---------
 
-$ ./bin/ejabberdctl register admin localhost your_password
-Check: http://localhost:5280/admin
-       http://localhost:5280/http-bind
-
 Start xmpp server
 $ ./bin/ejabberd
+
+$ ./bin/ejabberdctl register admin localhost YOUR_PASSWORD
+Check: http://localhost:5280/admin
+       http://localhost:5280/http-bind
 
 Start nginx server
 $ ./bin/frontend start
