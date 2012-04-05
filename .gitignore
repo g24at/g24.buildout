@@ -11,6 +11,7 @@ eggs-mrsd
 fake-eggs
 parts
 src
+tags
 var
 
 !.gitignore
