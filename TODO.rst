@@ -1,6 +1,12 @@
 
 TODO
 ----
+http://pypi.python.org/pypi/plone.app.memberschema
+
+yafowil error handlers in html form?
+validation?
+use content provider
+yafowil js inclusion in sharingbox template instead of portal_javascript
 
 portlets in ~home folders ->
     user configurable
