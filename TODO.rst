@@ -3,6 +3,12 @@ TODO
 ----
 http://pypi.python.org/pypi/plone.app.memberschema
 
+
+use is_thread on IBasetype to calculate, if content is a thread or not.
+        # If posting has more than 2 children: True
+        # If not: False
+
+
 yafowil error handlers in html form?
 validation?
 use content provider
