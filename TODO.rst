@@ -3,6 +3,11 @@ TODO
 ----
 http://pypi.python.org/pypi/plone.app.memberschema
 
+autoresize textarea
+https://github.com/xing/wysihtml5/issues/18
+  http://documentcloud.github.com/underscore/
+  http://svn.plone.org/svn/collective/collective.js.underscore/trunk/
+  http://pypi.python.org/pypi/collective.js.underscore
 
 next:
     autocomplete widget:
