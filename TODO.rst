@@ -8,6 +8,15 @@ https://github.com/xing/wysihtml5/issues/18
   http://documentcloud.github.com/underscore/
   http://svn.plone.org/svn/collective/collective.js.underscore/trunk/
   http://pypi.python.org/pypi/collective.js.underscore
+ https://github.com/mmonteleone/jquery.flextarea  
+https://github.com/jerryluk/jquery.autogrow
+https://github.com/azoff/AutoResize
+http://james.padolsey.com/javascript/jquery-plugin-autoresize/
+
+
+
+
+
 
 next:
     autocomplete widget:
