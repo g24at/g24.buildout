@@ -13,6 +13,8 @@ libxslt1-dev
 
 subversion
 git
+python-dev
+libmysqlclient-dev
 
 Install
 -------
