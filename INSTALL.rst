@@ -11,6 +11,8 @@ libpcre3-dev
 libxml2-dev
 libxslt1-dev
 
+subversion
+git
 
 Install
 -------
