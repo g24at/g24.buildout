@@ -1,6 +1,25 @@
 
 TODO
 ----
+
+visueller editor:
+
+add -> reply und übersetzen
+padding vom textfeld links und rechts ein paar pixel
+
+OK auto skalierung von bildern auf 100% (- pixel)
+placeholder - für datetime
+
+mobile
+tastaturlayout für email, web, zahlenfelder/datumsfelder
+
+
+design
+breit statt hoch, logo in der seite. --> bilschirme gehen in die breite anstatt
+höhe wie früher
+
+optisch kennzeichnen: event, thread, ...
+
 http://pypi.python.org/pypi/plone.app.memberschema
 
 autoresize textarea
@@ -19,6 +38,14 @@ http://james.padolsey.com/javascript/jquery-plugin-autoresize/
 
 
 next:
+
+    id generation - uuid
+        6 stellen                                   
+        A-Z,a-z,0-9 = (26+26+10)^6 = 62^6 = 56800235584 ~ 56800 *10^6 ~ 57 *10^9  RTdg76
+                                ^4 =           14776336 ~  15 *10^6               RTdg
+                       26^6 =                 308915776 ~ 309 *10^6               RTDGWA
+                       26^4 =                    456976 ~ 0.5 *10^6               RTDG
+
     autocomplete widget:
         jqueryui or autosuggest widget?
         use subject vocabulary
@@ -31,9 +58,9 @@ next:
     recurrenceinput:
         widgetless javascript integration
 
-    textarea:
-        img autolinker overloading
-        embedly integration
+OK    textarea:
+OK        img autolinker overloading
+OK        embedly integration
 
     location:
         is_event .. autocomplete widget + reference
