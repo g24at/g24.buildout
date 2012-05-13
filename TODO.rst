@@ -1,66 +1,71 @@
-
 TODO
+====
+
+
+next: alpha phase
 ----
 
-visueller editor:
+    plone.app.event integration
+        datepicker
+        recurrenceinput
+        fullcalendar
 
-add -> reply und übersetzen
-padding vom textfeld links und rechts ein paar pixel
+    VIEWS
+        g24.at/thread/12345
+        g24.at/stream/12345
+        g24.at/calendar/2011-11-11
+                       /2011-11
+                       /01-52
 
-OK auto skalierung von bildern auf 100% (- pixel)
-placeholder - für datetime
+        3 parent posts
+        paging
 
-mobile
-tastaturlayout für email, web, zahlenfelder/datumsfelder
+    g24 user migration
+    g24 content migration
+
+    g24 theme integration
+        logo
+        farben
+
+    theme
+        remove edit bar for specific theme, use other theme for different url
+            or remove edit bar, ... for normal users
+
+    #tags, @user
+
+VIEWS
+-----
+
+    url schema:
+        g24.at/~thet .. home directories
+        g24.at/stream/123456
+        g24.at/thread/123456
+        g24.at/calendar
+
+    über-tags:
+        kultur, musik, politik, allgemein
+        redaktionelle zusammenfassung mehrerer tags in kategorien
 
 
-design
-breit statt hoch, logo in der seite. --> bilschirme gehen in die breite anstatt
-höhe wie früher
 
-optisch kennzeichnen: event, thread, ...
-
-http://pypi.python.org/pypi/plone.app.memberschema
-
-autoresize textarea
-https://github.com/xing/wysihtml5/issues/18
-  http://documentcloud.github.com/underscore/
-  http://svn.plone.org/svn/collective/collective.js.underscore/trunk/
-  http://pypi.python.org/pypi/collective.js.underscore
- https://github.com/mmonteleone/jquery.flextarea  
-https://github.com/jerryluk/jquery.autogrow
-https://github.com/azoff/AutoResize
-http://james.padolsey.com/javascript/jquery-plugin-autoresize/
-
-
-
-
-
-
-next:
-
-    id generation - uuid
-        6 stellen                                   
-        A-Z,a-z,0-9 = (26+26+10)^6 = 62^6 = 56800235584 ~ 56800 *10^6 ~ 57 *10^9  RTdg76
-                                ^4 =           14776336 ~  15 *10^6               RTdg
-                       26^6 =                 308915776 ~ 309 *10^6               RTDGWA
-                       26^4 =                    456976 ~ 0.5 *10^6               RTDG
+SHARINGBOX
+----------
 
     autocomplete widget:
         jqueryui or autosuggest widget?
         use subject vocabulary
         use # notation: typing # starts autocompletion
-            parse #words then and index them
+            parse #words then and index theme
+
+        #tag
+        @user
+        titel*2010,10,10 10:00%location
 
     datepicker:
         jquerytools one
 
     recurrenceinput:
         widgetless javascript integration
-
-OK    textarea:
-OK        img autolinker overloading
-OK        embedly integration
 
     location:
         is_event .. autocomplete widget + reference
@@ -73,8 +78,20 @@ OK        embedly integration
         forces to always create enveloping content
 
 
-    depend on CMFPlone, but not Plone. do not include default profile. create
-    a own profile.
+ELEMENTS
+--------
+
+    use is_thread on IBasetype to calculate, if content is a thread or not.
+        # If posting has more than 2 children: True
+        # If not: False
+
+
+THEME
+-----
+
+    remove clutter for theme
+        no edit bar
+        remove unn. portlets & viewlets
 
     create theme
         use resource bundles to include only resources of interest
@@ -82,36 +99,103 @@ OK        embedly integration
         find way to apply theme only for specific domains, so that normal plone
         is always available
 
+    develop g24 styles
+
+
+USERs / PROFILES
+----------------
+
+    create home directories  g24.at/~thet --> traverser
+
+    user data fields
+        http://pypi.python.org/pypi/plone.app.memberschema
+
+
+
+INTEGRATiON
+-----------
+
+    depend on CMFPlone, but not Plone. do not include default profile. create
+    a own profile.
+
     include teaser
 
     configure portlets
 
-    create home directories
+    move bootstrap/editor packages outside this one.
 
 
+thomas
+------
+    visueller editor:
+        add -> reply und übersetzen
+        padding vom textfeld links und rechts ein paar pixel
+
+        OK auto skalierung von bildern auf 100% (- pixel)
+        placeholder - für datetime
+
+    mobile
+        tastaturlayout für email, web, zahlenfelder/datumsfelder
+
+    design
+        breit statt hoch, logo in der seite. --> bilschirme gehen in die breite anstatt in die höhe wie früher
+
+    optisch kennzeichnen: event, thread, ...
 
 
-move bootstrap/editor packages outside this one.
+PLIPs & ZIPs & OWN
+------------------
+    zope svn -> github (mirror?)
 
-use is_thread on IBasetype to calculate, if content is a thread or not.
-        # If posting has more than 2 children: True
-        # If not: False
+    OK one ranger per termit tab/folder :)
+
+
+DONE
+----
+
+OK elements: use content provider
+
+OK    textarea:
+OK        img autolinker overloading
+OK        embedly integration
+OK        asynchronous embedly integration
+
+OK    id generation - uuid
+        6 stellen
+        A-Z,a-z,0-9 = (26+26+10)^6 = 62^6 = 56800235584 ~ 56800 *10^6 ~ 57 *10^9  RTdg76
+                                ^4 =           14776336 ~  15 *10^6               RTdg
+                       26^6 =                 308915776 ~ 309 *10^6               RTDGWA
+                       26^4 =                    456976 ~ 0.5 *10^6               RTDG
+
+OK/2    autoresize textarea
+    https://github.com/xing/wysihtml5/issues/18
+        http://documentcloud.github.com/underscore/
+        http://svn.plone.org/svn/collective/collective.js.underscore/trunk/
+        http://pypi.python.org/pypi/collective.js.underscore
+    https://github.com/mmonteleone/jquery.flextarea
+    https://github.com/jerryluk/jquery.autogrow
+    https://github.com/azoff/AutoResize
+    http://james.padolsey.com/javascript/jquery-plugin-autoresize/
+
+
+OK: YAFOWIL
+    edit form
+        static vs dynamic
+        derive from addform/editform
+            first: apply behaviors
+            if, provide custom template here
+
 
 
 yafowil error handlers in html form?
 validation?
-use content provider
 yafowil js inclusion in sharingbox template instead of portal_javascript
+
 
 portlets in ~home folders ->
     user configurable
     default portlets override with layer and permission setting
 
-edit form
-    static vs dynamic
-    derive from addform/editform
-        first: apply behaviors
-        if, provide custom template here
 
 behaviors
     index on feature (behavior name) or indexed behavior interfaces (favorite, check)
@@ -130,9 +214,6 @@ behaviors
         is title
 
 
-one ranger per termit tab/folder :)
-
-
 
 eventually avoid usage of getObject in page templates more aggresively
 
@@ -144,10 +225,6 @@ ResourceRegistry js_registry, css_registry, kss_registry
     disable as much as possible in registries for g24 skin/theme/browserlayer
     register viewlets for specific browserlayer, show them only for specific theme
 
-
-@user
-#tag
-titel*2010,10,10 10:00%location
 
 
 * plone.app.jquery/master depends on P.ResourceRegistry with "bundle" feature.
