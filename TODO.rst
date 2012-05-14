@@ -51,6 +51,10 @@ VIEWS
 SHARINGBOX
 ----------
 
+    cancel button
+
+    dirty warning
+
     autocomplete widget:
         jqueryui or autosuggest widget?
         use subject vocabulary
@@ -195,6 +199,11 @@ yafowil js inclusion in sharingbox template instead of portal_javascript
 portlets in ~home folders ->
     user configurable
     default portlets override with layer and permission setting
+    
+    portlets are contextural configurable! how cool is this? make portlets
+    configurable for users within their homefolder ..... well, you can't allow
+    users to edit any portlets on any context ... but you can!
+
 
 
 behaviors
