@@ -2,6 +2,11 @@ TODO
 ====
 
 
+mandatory tags, user tags
+eventuell versch. ebenen von tags, kontext zu mandatory tags (musik ->
+styles...))
+event-> publish to kulturserver
+
 next: alpha phase
 ----
 
