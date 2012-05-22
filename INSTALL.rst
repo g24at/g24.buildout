@@ -4,28 +4,19 @@ g24.buildout installation
 Install dependencies
 --------------------
 
-erlang
-erlang-dev
-libexpat1-dev
-libpcre3-dev
-libxml2-dev
-libxslt1-dev
+$ sudo apt-get install subversion git build-essential
+$ sudo apt-get install libreadline-dev zlib1g-dev libbz2-dev
+$ sudo apt-get install libssl-dev libjpeg-dev
+$ sudo apt-get install libexpat1-dev libpcre3-dev libxml2-dev libxslt1-dev
+$ sudo apt-get install erlang erlang-dev
+$ sudo apt-get install python-dev libmysqlclient-dev
 
-subversion
-git
-python-dev
-libmysqlclient-dev
 
 Install
 -------
 
 $ git clone git@github.com:thet/g24.buildout.git g24.buildout
 $ cd g24.buildout
-$ mkdir src
-$ cd src
-$ git clone git://github.com/thet/buildout-base.git
-$ git clone git://github.com/collective/plone.app.event.git
-$ cd ..
 
 $ virtualenv --no-site-packages --distribute python
 $ source python/bin/python
