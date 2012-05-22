@@ -15,6 +15,9 @@ $ sudo apt-get install python-dev libmysqlclient-dev
 Install
 -------
 
+This project uses git pushurls to have general RO checkout and the possibility
+to check in RW at the same time.
+
 $ git clone git@github.com:thet/g24.buildout.git g24.buildout
 $ cd g24.buildout
 
@@ -23,18 +26,8 @@ $ source python/bin/python
 $ python bootstrap.py -d -c dev.cfg
 $ ./bin/buildout -c dev.cfg
 
-This project uses git pushurls to have general RO checkout and the possibility
-to check in RW at the same time.
-
-Configure
----------
-
 Start xmpp server
 $ ./bin/ejabberd
-
-$ ./bin/ejabberdctl register admin localhost YOUR_PASSWORD
-Check: http://localhost:5280/admin
-       http://localhost:5280/http-bind
 
 Start nginx server
 $ ./bin/frontend start
@@ -43,7 +36,18 @@ Start Zope instance
 $ ./bin/instance fg
 
 Create Plone Site: http://localhost:8080/manage with Profiles applied:
-g24.base, jarn.xmpp.core
+g24.base: development, jarn.xmpp.core
+
+Visit: http://localhost:9000/Plone
+
+
+Configure XMPP
+--------------
+
+$ ./bin/ejabberdctl register admin localhost YOUR_PASSWORD
+Check: http://localhost:5280/admin
+       http://localhost:5280/http-bind
+
 
 Edit registry settings in controlpanel. jarn.xmpp.* 
 Restart Plone
