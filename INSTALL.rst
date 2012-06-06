@@ -26,8 +26,16 @@ $ source python/bin/python
 $ python bootstrap.py -d -c dev.cfg
 $ ./bin/buildout -c dev.cfg
 
+Eventually remove ejabberd database
+$ rm -Rf ./var/ejabberd
+
 Start xmpp server
-$ ./bin/ejabberd
+$ ./bin/ejabberd start
+
+Setup ejabberd admin user
+$ ./bin/ejabberdctl register admin localhost YOUR_PASSWORD
+Check: http://localhost:5280/admin
+       http://localhost:5280/http-bind
 
 Start nginx server
 $ ./bin/frontend start
@@ -35,25 +43,26 @@ $ ./bin/frontend start
 Start Zope instance
 $ ./bin/instance fg
 
-Create Plone Site: http://localhost:8080/manage with Profiles applied:
-g24.base: development, jarn.xmpp.core
+Create Plone Site with Profiles applied: "g24.base: development":
+http://localhost:8080/@@plone-addsite?site_id=Plone
+
+Import additional profiles to setup content
+http://localhost:8080/Plone/portal_setup/manage_importSteps
+Profiles:
+    "g24.importer postnuke import" (g24 mysql installation required)
+    "g24.importer xml import" (g24 xml post export via provided scripts
+                               required)
+
+Finally, after the "postnuke import" step and all users are created,
+setup the PubSub nodes:
+http://localhost:9000/@@setup-xmpp
+This step should be done after the batch import of users was made, otherwise
+things would take too long.
+Users, which are created later are automatically synced.
+
 
 Visit: http://localhost:9000/Plone
 
-
-Configure XMPP
---------------
-
-$ ./bin/ejabberdctl register admin localhost YOUR_PASSWORD
-Check: http://localhost:5280/admin
-       http://localhost:5280/http-bind
-
-
-Edit registry settings in controlpanel. jarn.xmpp.* 
-Restart Plone
-Admin Login
-Setup PubSub nodes
-http://localhost:9000/@@setup-xmpp
 
 
 Run
