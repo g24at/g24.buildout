@@ -4,7 +4,7 @@
 .*
 
 bin
-etc
+etc/*
 develop-eggs
 downloads
 eggs
@@ -15,4 +15,5 @@ src
 tags
 var
 
+!etc/MARKER
 !.gitignore
