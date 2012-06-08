@@ -63,7 +63,7 @@ Users, which are created later are automatically synced.
 
 Visit: http://localhost:9000/Plone
 
-
+With Plone standard theme for admin tasks: http://127.0.0.1:8080/Plone/stream/1/?plone_skin=Sunburst%20Theme
 
 Run
 ---
