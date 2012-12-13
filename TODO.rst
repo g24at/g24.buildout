@@ -1,6 +1,33 @@
 TODO
 ====
 
+* align wysihtml5_g24_rules with parser rules from bootstrap-wysihtml5
+* make sure, parser rules are loaded
+* pass options to wysihtml5: autoLink, allowObjectResizing, etc.
+
+* load plone.app.event standard js and FIX it (or use bootstrap overlay in
+  calendar portlet).
+* style shareingbox edit form
+
+* create yafowil widgets:
+  - select2
+  - leaflet maps
+  - jquery fileupload
+  - jquerytools datepicker
+
+* jquery globalize?
+
+
+
+
+
+
+
+
+
+
+==================================================================
+
 
 mandatory tags, user tags
 eventuell versch. ebenen von tags, kontext zu mandatory tags (musik ->
