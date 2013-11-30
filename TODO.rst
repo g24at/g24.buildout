@@ -1,6 +1,38 @@
 TODO
 ====
 
+https://github.com/patik/within-viewport
+   http://stackoverflow.com/questions/9951072/change-class-based-on-page-scroll 
+    https://github.com/sxalexander/jquery-scrollspy
+http://imakewebthings.com/jquery-waypoints/
+http://stackoverflow.com/questions/12470645/change-css-class-after-scrolling-1000px-down
+http://stackoverflow.com/questions/16237953/changing-classes-with-animation-depending-on-scroll-position
+http://stackoverflow.com/questions/1548765/swap-css-class-on-the-basis-of-scroll-position-with-javascript/1548869#1548869
+http://css-tricks.com/forums/topic/how-to-change-css-class-on-page-scroll-using-jqueryjavascript/
+http://getbootstrap.com/2.3.2/javascript.html#scrollspy
+
+http://de.wikipedia.org/wiki/Soundex
+   http://en.wikipedia.org/wiki/Soundex 
+    http://www.sound-ex.de/
+
+http://en.wikipedia.org/wiki/Geocoding
+http://leafletjs.com/reference.html#map-constructor
+http://geojson.org/
+    http://en.wikipedia.org/wiki/GeoJSON
+    http://leafletjs.com/examples/geojson.html
+    http://geojson.io/#map=2/20.0/0.4
+
+http://g24.adm.at/
+http://plone.github.io/mockup/dev/
+https://github.com/plone/mockup/tree/master/js/patterns
+
+http://momentjs.com/
+http://momentjs.com/docs/
+
+http://masonry.desandro.com/
+http://designshack.net/tutorialexamples/masonry/demos/css.html
+http://isotope.metafizzy.co/
+
 * align wysihtml5_g24_rules with parser rules from bootstrap-wysihtml5
 * make sure, parser rules are loaded
 * pass options to wysihtml5: autoLink, allowObjectResizing, etc.
